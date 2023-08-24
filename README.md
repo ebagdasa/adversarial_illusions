@@ -1,4 +1,4 @@
-<h1 align="center"> <i>Ceci n'est pas une pomme*:</i>   <br>
+<h1 align="center"> <i>Ceci n'est pas une pomme:</i>   <br>
 Adversarial Illusions in Multi-Modal Embeddings </h1>
 
 <p align="center"> <i>Eugene Bagdasaryan and Vitaly Shmatikov</i></p>
