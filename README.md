@@ -3,6 +3,8 @@
 Paper link:
 [https://arxiv.org/abs/2308.11804](https://arxiv.org/abs/2308.11804)
 
+<img src="illusion.png" alt="drawing" width="600"/>
+
 This is preliminary set of notebooks, should be easy to edit and
 adapt. I ran everything using 4 12GB GPUs, so would just load each
 notebook on a separate card.
@@ -20,6 +22,12 @@ notebook on a separate card.
   with contents of `pandagpt_openllama.py` and you will be able
   to load directly from the tensor when your path contains "hack"
   (certainly open to better design suggestions).
-
+- For zero-shot classification of audios into ImageNet, you'd need
+  ImageNet validation dataset to compare embeddings.
+- Create a folder for assets, i.e. images, audios, etc. ImageBind has
+  `.assets` that you can take some examples from, but you can also use
+  your own.
 
 Please feel free to email: [eugene@cs.cornell.edu](mailto:eugene@cs.cornell.edu) or raise an issue.
+
+
