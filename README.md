@@ -1,4 +1,23 @@
-# Adversarial Illusions in Multi-Modal Embeddings
+<h1 style="text-align: center;"> <i>Ceci n'est pas une pomme*:</i>   <br>
+Adversarial Illusions in Multi-Modal Embeddings </h1>
+
+<p style="text-align: center;"> <i>Eugene Bagdasaryan and Vitaly Shmatikov</i></p>
+
+Multi-modal encoders map images, sounds, texts, videos, etc. into a
+single embedding space, aligning representations across modalities
+(e.g., associate an image of a dog with a barking sound). We show that
+multi-modal embeddings can be vulnerable to an attack we call
+"adversarial illusions." Given an input in any modality, an adversary
+can perturb it so as to make its embedding close to that of an
+arbitrary, adversary-chosen input in another modality. Illusions thus
+enable the adversary to align any image with any text, any text with
+any sound, etc. 
+
+Adversarial illusions exploit proximity in the embedding space and are
+thus agnostic to downstream tasks. Using ImageBind embeddings, we
+demonstrate how adversarially aligned inputs, generated without
+knowledge of specific downstream tasks, mislead image generation, text
+generation, and zero-shot classification.
 
 Paper link:
 [https://arxiv.org/abs/2308.11804](https://arxiv.org/abs/2308.11804)
