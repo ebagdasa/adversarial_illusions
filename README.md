@@ -22,7 +22,7 @@ generation, and zero-shot classification.
 Paper link:
 [https://arxiv.org/abs/2308.11804](https://arxiv.org/abs/2308.11804)
 
-<img src="illusion.png" alt="drawing" width="600"/>
+<img src="illusion.jpg" alt="drawing" width="600"/>
 
 This is preliminary set of notebooks, should be easy to edit and
 adapt. I ran everything using 4 12GB GPUs, so would just load each
