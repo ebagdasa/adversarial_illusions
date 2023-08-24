@@ -1,7 +1,7 @@
-<h1 style="text-align: center;"> <i>Ceci n'est pas une pomme*:</i>   <br>
+<h1 align="center"> <i>Ceci n'est pas une pomme*:</i>   <br>
 Adversarial Illusions in Multi-Modal Embeddings </h1>
 
-<p style="text-align: center;"> <i>Eugene Bagdasaryan and Vitaly Shmatikov</i></p>
+<p align="center"> <i>Eugene Bagdasaryan and Vitaly Shmatikov</i></p>
 
 Multi-modal encoders map images, sounds, texts, videos, etc. into a
 single embedding space, aligning representations across modalities
