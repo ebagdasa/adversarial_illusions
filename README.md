@@ -1,8 +1,6 @@
 <h1 align="center"> <i>Ceci n'est pas une pomme:</i>   <br>
 Adversarial Illusions in Multi-Modal Embeddings </h1>
 
-<p align="center"> <i>Eugene Bagdasaryan and Vitaly Shmatikov</i></p>
-
 Multi-modal encoders map images, sounds, texts, videos, etc. into a
 single embedding space, aligning representations across modalities
 (e.g., associate an image of a dog with a barking sound). We show that
@@ -18,9 +16,6 @@ thus agnostic to downstream tasks. Using ImageBind embeddings, we
 demonstrate how adversarially aligned inputs, generated without
 knowledge of specific downstream tasks, mislead image generation, text
 generation, and zero-shot classification.
-
-Paper link:
-[https://arxiv.org/abs/2308.11804](https://arxiv.org/abs/2308.11804)
 
 <img src="illusion.jpg" alt="drawing" width="600"/>
 
@@ -46,7 +41,4 @@ notebook on a separate card.
 - Create a folder for assets, i.e. images, audios, etc. ImageBind has
   `.assets` that you can take some examples from, but you can also use
   your own.
-
-Please feel free to email: [eugene@cs.cornell.edu](mailto:eugene@cs.cornell.edu) or raise an issue.
-
 
