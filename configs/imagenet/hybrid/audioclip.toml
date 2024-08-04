@@ -1,0 +1,17 @@
+[general]
+embeddings_input = 'outputs/embeddings/imagenet_audioclip_embeddings.npy'
+output_dir = 'outputs/imagenet/hybrid/audioclip/'
+model_flag = 'audioclip'
+gpu_num = 0
+epochs = 100000
+batch_size = 50
+epsilon = 16
+zero_shot_steps = 1
+lr = 0.02
+eta_min = 1e-5
+seed = 0
+number_images = 100
+buffer_size = 10
+delta = 0.0
+gamma_epochs = 300
+input_images_file = 'outputs/imagenet/whitebox/audioclip/x_advs_300.npy'

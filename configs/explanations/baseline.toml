@@ -1,0 +1,11 @@
+[general]
+model_flag      = '(opt) str: model name to evaluate over (see models.py for options)'
+model_flags     = '(opt) list: model names to evaluate over (if multiple)'
+gpu_num         = '(opt) int: gpu number'
+gpu_nums        = '(opt) list: gpu numbers (if multiple--need not be same length as model_flags)'
+batch_size      = 'int: batch size'
+seed            = 'int: random seed'
+number_images   = 'int: number of images/audios to attack'
+modality        = '{vision/audio}'
+dataset_flag    = '{imagenet/audiocaps/audioset}'
+eval_type       = '{adversarial/organic}: baselines as described in the paper'

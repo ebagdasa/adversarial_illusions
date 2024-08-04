@@ -1,0 +1,43 @@
+--------------Organic alignment----------------
+Total Correct: 66
+Total Images: 100
+Accuracy: 66.00%
+Mean Similarity: 0.0808
+Standard Deviation Similarity: 0.0446
+--------------Adversarial alignment----------------
+--------------eps:0----------------
+Total Correct: 34
+Total Images: 100
+Accuracy: 34.00%
+Mean Similarity: 0.0532
+Standard Deviation Similarity: 0.0218
+--------------eps:1----------------
+Total Correct: 40
+Total Images: 100
+Accuracy: 40.00%
+Mean Similarity: 0.0646
+Standard Deviation Similarity: 0.0216
+--------------eps:4----------------
+Total Correct: 81
+Total Images: 100
+Accuracy: 81.00%
+Mean Similarity: 0.1596
+Standard Deviation Similarity: 0.0298
+--------------eps:8----------------
+Total Correct: 100
+Total Images: 100
+Accuracy: 100.00%
+Mean Similarity: 0.2733
+Standard Deviation Similarity: 0.0315
+--------------eps:16----------------
+Total Correct: 100
+Total Images: 100
+Accuracy: 100.00%
+Mean Similarity: 0.4160
+Standard Deviation Similarity: 0.0281
+--------------eps:32----------------
+Total Correct: 100
+Total Images: 100
+Accuracy: 100.00%
+Mean Similarity: 0.5502
+Standard Deviation Similarity: 0.0285

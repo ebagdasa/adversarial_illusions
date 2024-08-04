@@ -1,0 +1,427 @@
+No module 'xformers'. Proceeding without it.
+Downloading imagebind weights to ./checkpoints/imagebind_huge.pth ...
+ImageEmbeddingConditionedLatentDiffusion: Running in v-prediction mode
+DiffusionWrapper has 870.17 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+Data shape for DDIM sampling is (1, 4, 96, 96), eta 0
+Running DDIM Sampling with 50 timesteps
+-----------Original image-----------
+The top-1 accuracy for the original label is: 85.00%
+The top-5 accuracy for the original label is: 99.00%
+The top-1 accuracy for the target label is: 0.00%
+The top-5 accuracy for the target label is: 1.00%
+-----------Generated image from original image-----------
+The top-1 accuracy for the original label is: 33.00%
+The top-5 accuracy for the original label is: 59.00%
+The top-1 accuracy for the target label is: 0.00%
+The top-5 accuracy for the target label is: 2.00%
+-----------Perturbed image-----------
+The top-1 accuracy for the original label is: 77.00%
+The top-5 accuracy for the original label is: 95.00%
+The top-1 accuracy for the target label is: 0.00%
+The top-5 accuracy for the target label is: 0.00%
+-----------Generated image from perturbed image-----------
+The top-1 accuracy for the original label is: 0.00%
+The top-5 accuracy for the original label is: 2.00%
+The top-1 accuracy for the target label is: 62.00%
+The top-5 accuracy for the target label is: 87.00%

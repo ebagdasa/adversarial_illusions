@@ -1,0 +1,10 @@
+[general]
+adv_file = 'outputs/imagenet/whitebox/openclip_rn50/x_advs_300.npy'
+model_flags = ['imagebind', 'audioclip_partial', 'openclip', 'openclip_rn50']
+gpu_num = 0
+batch_size = 4
+seed = 0
+number_images = 4
+modality = 'vision'
+dataset_flag = 'imagenet'
+eval_type = 'transfer'

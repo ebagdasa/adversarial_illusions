@@ -1,0 +1,6 @@
+[submodule "BindDiffusion"]
+	path = BindDiffusion
+	url = https://github.com/sail-sg/BindDiffusion.git
+[submodule "PandaGPT"]
+	path = PandaGPT
+	url = https://github.com/yxuansu/PandaGPT.git

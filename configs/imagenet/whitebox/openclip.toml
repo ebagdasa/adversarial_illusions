@@ -1,0 +1,13 @@
+[general]
+output_dir = 'outputs/imagenet/whitebox/openclip/'
+model_flag = 'openclip'
+gpu_num = 0
+epochs =  [300, 7500]
+batch_size = 4
+epsilon = 16
+lr = 0.02
+seed = 0
+number_images = 100
+gamma_epochs = 300
+modality = 'vision'
+dataset_flag = 'imagenet'

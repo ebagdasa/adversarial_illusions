@@ -1,0 +1,13 @@
+[general]
+output_dir = 'outputs/imagenet/transfer/ensemble/'
+model_flags = ['openclip', 'openclip_rn50']
+gpu_nums = [ 0, 1]
+epochs = [ 50, 75, 100, 150, 200, 250, 300,]
+batch_size = 4
+epsilon = 16
+lr = 0.02
+seed = 0
+number_images = 100
+gamma_epochs = 100
+modality = 'vision'
+dataset_flag = 'imagenet'

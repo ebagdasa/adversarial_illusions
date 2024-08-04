@@ -1,0 +1,13 @@
+[general]
+output_dir = 'outputs/audiocaps/whitebox/audioclip/'
+model_flag = 'audioclip'
+gpu_num = 0
+epochs = 7500
+batch_size = 1
+epsilon = 1e-1
+lr = 0.02
+seed = 0
+number_images = 100
+gamma_epochs = 200
+modality = 'audio'
+dataset_flag = 'audiocaps'

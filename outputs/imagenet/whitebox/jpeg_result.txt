@@ -1,0 +1,39 @@
+-----------Imagebind-----------
+Adversarial illusions:
+Without JPEG defense:
+     Attack success rate: 99%
+     Average adversarial alignment: 0.7217051
+     Standard deviation of adversarial alignment: 0.05138507
+With JPEG defense
+     Attack success rate: 4%
+     Average adversarial alignment: 0.21186925
+     Standard deviation of adversarial alignment: 0.056445263
+
+JPEG-resistant Adversarial illusions:
+Without JPEG defense:
+     Attack success rate: 88%
+     Average adversarial alignment: 0.41804165
+     Standard deviation of adversarial alignment: 0.07213594
+With JPEG defense
+     Attack success rate: 91%
+     Average adversarial alignment: 0.42241406
+     Standard deviation of adversarial alignment: 0.06632297
+-----------Audioclip-----------
+Adversarial illusions:
+Without JPEG defense:
+     Attack success rate: 100%
+     Average adversarial alignment: 0.529
+     Standard deviation of adversarial alignment: 0.04890835
+With JPEG defense
+     Attack success rate: 70%
+     Average adversarial alignment: 0.24462555
+     Standard deviation of adversarial alignment: 0.050902773
+JPEG-resistant Adversarial illusions:
+Without JPEG defense:
+     Attack success rate: 100%
+     Average adversarial alignment: 0.41502503
+     Standard deviation of adversarial alignment: 0.04394316
+With JPEG defense
+     Attack success rate: 98%
+     Average adversarial alignment: 0.3796819
+     Standard deviation of adversarial alignment: 0.0471708

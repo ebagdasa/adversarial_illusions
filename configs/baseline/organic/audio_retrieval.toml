@@ -1,0 +1,9 @@
+[general]
+model_flags = ['imagebind', 'audioclip']
+gpu_num = 0
+batch_size = 1
+seed = 0
+number_images = 100
+modality = 'audio'
+dataset_flag = 'audiocaps'
+eval_type = 'organic'

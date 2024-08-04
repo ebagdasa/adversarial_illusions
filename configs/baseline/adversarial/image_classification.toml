@@ -1,0 +1,9 @@
+[general]
+model_flags = ['imagebind', 'audioclip']
+gpu_num = 0
+batch_size = 4
+seed = 0
+number_images = 100
+modality = 'vision'
+dataset_flag = 'imagenet'
+eval_type = 'adversarial'
