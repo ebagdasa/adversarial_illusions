@@ -8,14 +8,14 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
-from utils import norm, unnorm, criterion
+from utils import norm, unnorm, criterion, unnorm_audio, norm_audio
 from dataset_utils import create_dataset
 from models import load_model
 import time
-
+from Generate_JND_Matrix import CalculateJND, project_to_jnd, sample_patch_location
 
 # Configure Script
-config = toml.load(f'configs/imagenet/query/{sys.argv[1]}.toml')['general']
+config = toml.load(f'configs/{sys.argv[1]}/query/{sys.argv[2]}.toml')['general']
 epochs = config['epochs']
 gpu_num = config['gpu_num']
 batch_size = config['batch_size']
@@ -31,10 +31,12 @@ embs_input = config.get('embeddings_input', output_dir + 'embs.npy')\
 modality = config.get('modality', 'vision')
 dataset_flag = config.get('dataset_flag', 'imagenet')
 input_images_file = config.get('input_images_file', None)
+gamma = config.get('gamma', 0.5)
+temperature = config.get('temperature', 0.5)
 
-if modality == 'vision':
-    eps = eps / 255
-    
+device = f"cuda:{gpu_num}" if torch.cuda.is_available() else "cpu"
+eps = eps / 255
+estimator = CalculateJND(value_range=1.0, c_lt=0.3, pool_size=3).to(device)
 Path(output_dir).mkdir(parents=True, exist_ok=True)
 
 full_flag=False
@@ -48,7 +50,6 @@ if input_images_file!=None:
     hybrid=True
 print('Hybrid: ',hybrid)
 
-device = f"cuda:{gpu_num}" if torch.cuda.is_available() else "cpu"
 assert n_images % batch_size == 0
 
 # Instantiate Model
@@ -82,11 +83,8 @@ def get_loss(y, logits, targeted=False, loss_type='margin_loss'):
         diff[y] = np.inf  # to exclude zeros coming from f_correct - f_correct
         margin = diff.min(1, keepdims=True)
         loss = margin * -1 if targeted else margin
-        # print(loss)
     elif loss_type == 'cross_entropy':
         probs = softmax(logits)
-        # print(y)
-        # print(probs.shape)
         loss = -np.log(probs[y])
         loss = loss * -1 if not targeted else loss
     return loss.flatten()
@@ -123,25 +121,69 @@ def p_selection(p_init, it, n_iters):
 
     return p
 
-def square_attack_linf(model, x, y, eps, n_iters, p_init, metrics_path, targeted, loss_type, local_adv=None):
+def square_attack_linf(model, x, y, eps, n_iters, p_init, metrics_path, targeted, loss_type, local_adv=None, JND_matrix=None):
     """ The Linf square attack """
     np.random.seed(0)  # important to leave it here as well
     early_break=False
-    x=unnorm(x).to(device)
     min_val, max_val = 0, 1
     c, h, w = x.shape[1:]
     n_features = c*h*w
     n_ex_total = x.shape[0]
+    print(f"Modality: {modality}, Shape: {x.shape}")
 
-    if local_adv==None:
-        init_delta = torch.tensor(np.random.choice([-eps, eps], size=[x.shape[0], c, 1, w])).to(torch.float).to(device)
+    # Store original shape for audio multi-clip handling
+    original_shape = x.shape
+    audio_multi_clip = False
+
+    if modality == "audio":
+        x = x.to(device)
+        #x = unnorm_audio(x).to(device)
+
+        # If x is [B, 3, 1, 128, 204], squeeze to [B, 3, 128, 204] to treat clips as channels for attack
+        if x.ndim == 4 and x.shape[1] == 3:
+            audio_multi_clip = True
+            x = x.squeeze(2)  # [B, 3, 1, 128, 204] -> [B, 3, 128, 204]
+            print(f"Audio multi-clip: squeezed to {x.shape}")
+        else:
+            assert x.shape[1] == 1, x.shape  # Should have 1 channel for audio
+        c, h, w = x.shape[1:]
+        n_features = c * h * w
+        min_val, max_val = -3.0, 3.0 # Audio normalized
     else:
-        local_adv=unnorm(local_adv).to(device)
-        init_delta = local_adv-x
-    # init_delta=0
-    x_best = torch.clip(x + init_delta, min_val, max_val)
+        x = unnorm(x).to(device)
+        min_val, max_val = 0, 1
+    if local_adv==None:
+        # Temp
+        init_delta = torch.zeros_like(x)
+
+        block_h = min(16, h)
+        block_w = min(16, w)
+        h0 = np.random.randint(0, h - block_h + 1)
+        w0 = np.random.randint(0, w - block_w + 1)
+
+        target = init_delta[:, :, h0:h0 + block_h, w0:w0 + block_w]
+        sign = torch.where(
+            torch.rand_like(target) < 0.5,
+            torch.tensor(-eps, device=x.device),
+            torch.tensor(eps, device=x.device),
+        )
+        init_delta[:, :, h0:h0 + block_h, w0:w0 + block_w] = sign
+
+        # init_delta = torch.tensor(np.random.choice([-eps, eps], size=[x.shape[0], c, 1, w])).to(torch.float).to(device)
+    else:
+        local_adv = unnorm(local_adv).to(device)
+        init_delta = local_adv - x
+
+    if JND_matrix is not None:
+        # Use eps as eps_jnd calculated inside this projection function
+        x_best = project_to_jnd(x + init_delta, x, JND_matrix, eps=eps, gamma=gamma, value_range=1.0)
+    else:
+        x_best = torch.clip(x + init_delta, min_val, max_val)
+
+    # Reshape back to 5D for audio if needed
+    x_best_model = x_best.unsqueeze(2) if audio_multi_clip else x_best
     with torch.no_grad():
-        embeds = model.forward(x_best.cuda(), modality, normalize=True)
+        embeds = model.forward(x_best_model.cuda(), modality, normalize=False)
     logits=criterion(embeds[:, None, :].cpu(), image_text_dataset.labels[None, :, :].cpu(), dim=2).detach().cpu().numpy()
     loss_min = get_loss(y, logits, targeted, loss_type=loss_type)
     margin_min = get_loss(y, logits, targeted, loss_type='margin_loss')
@@ -158,23 +200,38 @@ def square_attack_linf(model, x, y, eps, n_iters, p_init, metrics_path, targeted
         for i_img in range(x_best_curr.shape[0]):
             s = int(round(np.sqrt(p * n_features / c)))
             s = min(max(s, 1), h-1)  # at least c x 1 x 1 window is taken and at most c x h-1 x h-1
-            center_h = np.random.randint(0, h - s)
-            center_w = np.random.randint(0, w - s)
+            if JND_matrix is not None:
+                # Sample patch location based on JND matrix
+                center_h, center_w = sample_patch_location(
+                    saliency=JND_matrix[i_img],
+                    s=s,
+                    device=x_curr.device,
+                    temperature=temperature,
+                )
+            else:
+                center_h = np.random.randint(0, h - s)
+                center_w = np.random.randint(0, w - s)
 
             x_curr_window = x_curr[i_img, :, center_h:center_h+s, center_w:center_w+s]
             x_best_curr_window = x_best_curr[i_img, :, center_h:center_h+s, center_w:center_w+s]
             # prevent trying out a delta if it doesn't change x_curr (e.g. an overlapping patch)
             while torch.sum(torch.abs(torch.clip(x_curr_window + deltas[i_img, :, center_h:center_h+s, center_w:center_w+s], min_val, max_val) - x_best_curr_window) < 10**-7) == c*s*s:
-                deltas[i_img, :, center_h:center_h+s, center_w:center_w+s] = torch.tensor(np.random.choice([-eps, eps], size=[c, 1, 1]))
+                deltas[i_img, :, center_h:center_h+s, center_w:center_w+s] = torch.tensor(np.random.choice([-eps, eps], size=[c, 1, 1])).to(x_curr.device)
 
-        x_new = torch.clip(x_curr + deltas, min_val, max_val).to(device)
+        if JND_matrix is not None:
+            x_new = project_to_jnd(x_curr + deltas, x[idx_to_fool], JND_matrix[idx_to_fool], eps=eps, gamma=gamma, value_range=1.0)
+        else:
+            x_new = torch.clip(x_curr + deltas, min_val, max_val).to(device)
+
+        # Reshape back to 5D for audio if needed
+        x_new_model = x_new.unsqueeze(2) if audio_multi_clip else x_new
         with torch.no_grad():
-            embeds = model.forward(x_new, modality, normalize=True)
+            embeds = model.forward(x_new_model, modality, normalize=False)
         logits=criterion(embeds[:, None, :].cpu(), image_text_dataset.labels[None, :, :].cpu(), dim=2).detach().cpu().numpy()
+
+        # Compute loss directly - treat as standard 3-channel image
         loss = get_loss(y_curr, logits, targeted, loss_type=loss_type)
         margin = get_loss(y_curr, logits, targeted, loss_type='margin_loss')
-
-        
         idx_improved = loss < loss_min_curr
         loss_min[idx_to_fool] = idx_improved * loss + ~idx_improved * loss_min_curr
         margin_min[idx_to_fool] = idx_improved * margin + ~idx_improved * margin_min_curr
@@ -204,6 +261,8 @@ def square_attack_linf(model, x, y, eps, n_iters, p_init, metrics_path, targeted
             if early_break==True:
                 break
 
+    # Keep in 4D format [B, 3, 128, 204] for saving (clips as channels)
+    # Evaluation will handle the reshaping to 5D if needed
     return n_queries, x_best
 
 targeted=True  
@@ -232,27 +291,42 @@ if hybrid==True:
     print("-----------------------------------------")
 
 torch.manual_seed(seed)
+print("Loading data...")
 dataloader = DataLoader(image_text_dataset, batch_size=batch_size, shuffle=True)
+print("Starting Square Attack...")
 
 for i, (X, Y, gt, y_id, y_orig) in enumerate(dataloader):
     metrics_path = f"{output_dir}metrics_{i}.npy"
+    n_target_classes = image_text_dataset.labels.shape[0]
     if targeted:
-        y=dense_to_onehot(y_id, n_cls=1000)
+        y = dense_to_onehot(y_id, n_cls=n_target_classes)
     else:
-        y=dense_to_onehot(y_orig, n_cls=1000)
+        y = dense_to_onehot(y_orig, n_cls=n_target_classes)
+
+    # Compute JND matrix in [0, 1] space
+    if modality == "vision":
+        X_unnormed = unnorm(X)  # Reverse normalization to get [0, 1]
+        JND_matrix = estimator(X_unnormed).to(device)
+    else:
+        # TODO: Implement JND estimation for audio
+        JND_matrix = None
 
     if hybrid==True:
         local_adv=local_advs[i*batch_size:i*batch_size+batch_size]
         n_queries, x_adv = square_attack_linf(model, X, y, eps, epochs,
-                                        p, metrics_path, targeted, loss, local_adv)
+                                        p, metrics_path, targeted, loss, local_adv, JND_matrix)
     else:
         n_queries, x_adv = square_attack_linf(model, X, y, eps, epochs,
-                                        p, metrics_path, targeted, loss)
+                                        p, metrics_path, targeted, loss, JND_matrix=JND_matrix)
     # Record batchwise information
     with torch.no_grad():
-        norm_x_adv=norm(x_adv)
-        gt_embeddings = model.forward(norm_x_adv.to(device), modality, normalize=True).detach().cpu()
-        embeds = model.forward(x_adv.to(device), modality, normalize=True).detach().cpu()
+        # For vision, normalize back to [0,1] space. For audio, keep as-is (already normalized)
+        norm_x_adv = norm(x_adv) if modality == 'vision' else x_adv
+        # Reshape back to 5D for audio if needed
+        x_adv_model = x_adv.unsqueeze(2) if modality == 'audio' and x_adv.ndim == 4 and x_adv.shape[1] == 3 else x_adv
+        norm_x_adv_model = norm_x_adv.unsqueeze(2) if modality == 'audio' and norm_x_adv.ndim == 4 and norm_x_adv.shape[1] == 3 else norm_x_adv
+        gt_embeddings = model.forward(norm_x_adv_model.to(device), modality, normalize=False).detach().cpu()
+        embeds = model.forward(x_adv_model.to(device), modality, normalize=False).detach().cpu()
         classes = criterion(embeds[:, None, :].cpu(), image_text_dataset.labels[None, :, :].detach().cpu(), dim=2).argsort(dim=1, descending=True)
 
     X_advs.append(norm_x_adv.detach().cpu().clone())
@@ -290,3 +364,12 @@ print("Average organic alignment:", gt_loss_avg)
 print("Standard deviation of organic alignment:", gt_loss_std)
 print("Average adversarial alignment:", adv_loss_avg)
 print("Standard deviation of adversarial alignment:", adv_loss_std)
+
+# Save the printed metrics to the output folder as results.txt
+results_path = Path(output_dir) / 'results.txt'
+with open(results_path, 'w') as f:
+    f.write(f"Average organic alignment: {gt_loss_avg}\n")
+    f.write(f"Standard deviation of organic alignment: {gt_loss_std}\n")
+    f.write(f"Average adversarial alignment: {adv_loss_avg}\n")
+    f.write(f"Standard deviation of adversarial alignment: {adv_loss_std}\n")
+print(f"Saved metrics to {results_path}")

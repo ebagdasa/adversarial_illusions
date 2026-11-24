@@ -20,10 +20,14 @@ DATA_PATH = {
     'audioset': 'data/AudioCaps/',
 }
 
+
+
 TEMPLATES = {
     'imagenet': 'A photo of a {}.'
 }
 
+AUDIO_MEAN=-4.268
+AUDIO_STD=9.138
 
 def get_embeddings(embs_file, labels, device, dataset_flag, model=None, batch_size=250, device_override=False):
     if embs_file is not None and os.path.isfile(embs_file):
@@ -90,7 +94,7 @@ class WrappedAudioCapsDataset(Dataset):
         self, dataset, model,
         mapping=None, device='cpu', seed=0,
         embs_input=None, embedding_batch_size=250,
-        embedding_override=False
+        embedding_override=False,
     ):
         self.dataset = dataset
         self.seed = seed
@@ -113,8 +117,14 @@ class WrappedAudioCapsDataset(Dataset):
         gt, y_str = self.dataset[self.mapping[idx]]
         y_orig_id, y_str_id = self.lab_to_id[y_orig], self.lab_to_id[y_str]
         if self.model.flag == 'imagebind':
-            x = torch.squeeze(x)[:, None, :, :]
-            gt = torch.squeeze(gt)[:, None, :, :]
+            # Audio should be [clips, 1, mel_bins, time_steps] for ImageBind
+            # load_and_transform_audio_data returns [1, clips, 1, mel_bins, time_steps]
+            # We need to remove batch dim but keep clips as separate dimension
+            x = torch.squeeze(x, dim=0)  # Remove batch dim -> [clips, 1, mel_bins, time_steps]
+            gt = torch.squeeze(gt, dim=0)  # Remove batch dim -> [clips, 1, mel_bins, time_steps]
+            # Add batch dim for consistency -> [1, clips, 1, mel_bins, time_steps]
+            x = x.unsqueeze(0)
+            gt = gt.unsqueeze(0)
         x = (0.0001 * torch.randn_like(x)) + x.detach()
         if self.embs_file is not None:
             y = self.labels[y_str_id].to(self.device)
