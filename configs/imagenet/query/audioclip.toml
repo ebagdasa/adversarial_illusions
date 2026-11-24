@@ -13,4 +13,6 @@ seed = 0
 number_images = 100
 buffer_size = 10
 delta = 0.0
+gamma = 0.5
+temp = 0.5
 gamma_epochs = 300
